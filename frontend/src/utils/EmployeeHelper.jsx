@@ -111,8 +111,29 @@ export const getEmployees = async (id) => {
 };
 
 
-export const EmployeeButtons = ({ Id }) => {
+export const EmployeeButtons = ({ Id,onEmployeeDelete }) => {
     const navigate=useNavigate()
+
+    const handleDelete= async(id)=> {
+        const confirm=window.confirm("Do you want to delete")
+        if(confirm) {
+        try {
+            const response=await axios.delete(`http://localhost:5000/api/employee/${id}`,{
+              headers:{
+                'Authorization':`Bearer ${localStorage.getItem('token')}`
+              }
+            })
+            if (response.data.success) {
+                onEmployeeDelete(id)
+            }        
+          }
+          catch(error){
+            if(error.response && !error.response.data.success) {
+              alert(error.response.data.error)
+            }
+          }
+        }
+    }
 
     return (
         <div className="flex space-x-3">
@@ -124,9 +145,12 @@ export const EmployeeButtons = ({ Id }) => {
             <button className="px-3 py-1 bg-yellow-600 text-yellow cursor-pointer"
             onClick={()=>navigate(`/admin-dashboard/employees/salary/${Id}`)}
             >Salary</button>
-            <button className="px-3 py-1 bg-red-600 text-white cursor-pointer"
+            <button className="px-3 py-1 bg-pink-600 text-white cursor-pointer"
             onClick={()=>navigate(`/admin-dashboard/employees/leaves/${Id}`)}
             >Leave</button>
+             <button className="px-3 py-1 bg-red-600 text-white cursor-pointer"
+            onClick={() => handleDelete(Id)}
+            >Delete</button>
         </div>
     )
 }

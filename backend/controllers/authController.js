@@ -22,7 +22,7 @@ const login =async (req,res) => {
                 error:"Wrong Password"
             })
         }
-        const token=jwt.sign({_id:user._id,role:user.role},process.env.JWT_KEY,{expiresIn:"10d"})
+        const token=jwt.sign({_id:user._id,role:user.role},process.env.JWT_KEY,{expiresIn:"20d"})
 
         res.status(200).json({
             success:true,

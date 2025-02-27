@@ -4,10 +4,10 @@ import {addDepartment,getDepartments,getDepartment, updateDepartment,deleteDepar
 
 const router=express.Router()
 
-router.get('/',getDepartments)
-router.post('/add',addDepartment)
-router.get('/:id',getDepartment)
-router.put('/:id',updateDepartment)
-router.delete('/:id',deleteDepartment)
+router.get('/',authMiddleware,getDepartments)
+router.post('/add',authMiddleware,addDepartment)
+router.get('/:id',authMiddleware,getDepartment)
+router.put('/:id',authMiddleware,updateDepartment)
+router.delete('/:id',authMiddleware,deleteDepartment)
 
 export default router

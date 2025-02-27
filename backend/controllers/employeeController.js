@@ -305,4 +305,21 @@ const fetchEmployeesByDepId =  async (req,res) => {
 
 }
 
-export {addEmployee,upload,getEmployees,getEmployee,updateEmployee,fetchEmployeesByDepId}
+const deleteEmployee=async(req,res)=> {
+    try {
+        const {id}=req.params;
+        const deleteEmp=await Employee.findById({_id:id})
+        await deleteEmp.deleteOne()
+        return res.status(200).json({
+            success:true,
+            deleteEmp
+        })
+     }
+     catch(error) {
+        return res.status(500).json({
+            success:false,
+            error:"delete Employee server error"
+        })
+     }
+}
+export {addEmployee,upload,getEmployees,getEmployee,updateEmployee,fetchEmployeesByDepId,deleteEmployee}

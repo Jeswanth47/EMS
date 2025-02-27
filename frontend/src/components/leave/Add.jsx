@@ -79,7 +79,7 @@ const Add = () => {
                     />  
                     </div>
                     {/* email */}
-                    <div>
+                    {/* <div>
                         <label className='block text-sm font-medium text-gray-700'>
                             Email
                         </label>
@@ -88,7 +88,7 @@ const Add = () => {
                         className='mt-1 p-2 block w-full border border-gray-300 rounded-md'
                         required
                         />
-                    </div>
+                    </div> */}
                     {/* description */}
                     <div>
                         <label className='block text-sm font-medium text-gray-700'>
