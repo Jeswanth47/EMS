@@ -9,17 +9,17 @@ ensures secure authentication using JWT tokens, real-time data updates, and intu
 **Tech Stack:**
 
 **Frontend**:
-React.js
-React Router (Navigation)
-Axios (API calls)
-Tailwind CSS (Styling)
+React.js, 
+React Router (Navigation), 
+Axios (API calls), 
+Tailwind CSS (Styling), 
 React Data Table (Tabular Data)
 
 **Backend:**
-Node.js (Server-side runtime)
-Express.js (Web framework)
-MongoDB (Database)
-Mongoose (ODM for MongoDB)
+Node.js (Server-side runtime), 
+Express.js (Web framework), 
+MongoDB (Database), 
+Mongoose (ODM for MongoDB), 
 JWT (Authentication)
 
 **Backend Configuration**
